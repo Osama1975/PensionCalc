@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب الراتب التقاعدي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>حاسبة الراتب التقاعدي</h1>
+        <div class="form-container">
+            <form id="salaryForm">
+                <label for="baseSalary">الراتب الاسمي:</label>
+                <input type="number" id="baseSalary" required>
+
+                <label for="yearsOfService">سنوات الخدمة الكلية:</label>
+                <input type="number" id="yearsOfService" required>
+
+                <label for="educationLevel">الشهادة الدراسية:</label>
+                <select id="educationLevel" required>
+                    <option value="">اختر الشهادة</option>
+                    <option value="none">بدون شهادة</option>
+                    <option value="highschool">ثانوية عامة</option>
+                    <option value="diploma">دبلوم</option>
+                    <option value="bachelor">بكالوريوس</option>
+                    <option value="master">ماجستير</option>
+                    <option value="doctorate">دكتوراه</option>
+                </select>
+
+                <button type="button" onclick="calculatePension()">احسب</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة منبثقة لعرض النتائج -->
+    <div id="resultsPopup" class="popup">
+        <div class="popup-content">
+            <h2>النتائج</h2>
+            <p id="pensionSalary"></p>
+            <p id="costOfLivingAllowance"></p>
+            <p id="educationAllowance"></p>
+            <p id="expectedPension"></p>
+            <button class="close-btn" onclick="closePopup()">إغلاق</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
