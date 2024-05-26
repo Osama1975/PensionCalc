@@ -1,27 +1,35 @@
 function calculatePension() {
     const baseSalaryInput = document.getElementById('baseSalary');
+    const averageBaseSalaryInput = document.getElementById('averageBaseSalary');
     const yearsOfServiceInput = document.getElementById('yearsOfService');
 
     const baseSalary = parseFloat(baseSalaryInput.value);
+    const averageBaseSalary = parseFloat(averageBaseSalaryInput.value);
     const yearsOfService = parseFloat(yearsOfServiceInput.value);
 
     // التحقق من أن المدخلات غير فارغة وأنها أرقام صحيحة
-    if (!baseSalaryInput.value || isNaN(baseSalary) || !Number.isInteger(baseSalary)) {
-        alert('يرجى إدخال قيمة صحيحة للراتب الاسمي (عدد صحيح).');
+    if (!baseSalaryInput.value || isNaN(baseSalary) || baseSalary <= 0) {
+        alert('يرجى إدخال قيمة صحيحة للراتب الاسمي.');
         baseSalaryInput.focus();
         return;
     }
 
-    if (!yearsOfServiceInput.value || isNaN(yearsOfService) || !Number.isInteger(yearsOfService)) {
-        alert('يرجى إدخال قيمة صحيحة لسنوات الخدمة (عدد صحيح).');
+    if (!averageBaseSalaryInput.value || isNaN(averageBaseSalary) || averageBaseSalary <= 0) {
+        alert('يرجى إدخال قيمة صحيحة لمعدل الراتب الاسمي لآخر 36 شهرًا.');
+        averageBaseSalaryInput.focus();
+        return;
+    }
+
+    if (!yearsOfServiceInput.value || isNaN(yearsOfService) || yearsOfService <= 0) {
+        alert('يرجى إدخال قيمة صحيحة لسنوات الخدمة.');
         yearsOfServiceInput.focus();
         return;
     }
 
     const educationLevel = document.getElementById('educationLevel').value;
 
-    // الحسابات الأساسية
-    let pensionSalary = baseSalary * 0.025 * yearsOfService;
+    // الحسابات الأساسية باستخدام معدل الراتب الاسمي لآخر 36 شهرًا
+    let pensionSalary = averageBaseSalary * 0.025 * yearsOfService;
 
     // التأكد من أن الراتب التقاعدي لا يتجاوز الراتب الاسمي
     if (pensionSalary > baseSalary) {
@@ -67,7 +75,7 @@ function calculatePension() {
 
     // تنسيق الأرقام وعرض النتائج في النافذة المنبثقة
     document.getElementById('pensionSalary').textContent = `الراتب التقاعدي: ${Math.floor(pensionSalary).toLocaleString()} دينار`;
-    document.getElementById('costOfLivingAllowance').textContent = `مخصصات غلاء المعيشة: ${Math.floor(costOfLivingAllowance).toLocaleString()} دينار`;
+    document.getElementById('costOfLivingAllowance').textContent = `مخصصات غلاء المعيشة: ${Math.floor(costOfLivingAllowance * 100) / 100} دينار`;
     document.getElementById('educationAllowance').textContent = `مخصصات الشهادة: ${Math.floor(educationAllowance).toLocaleString()} دينار`;
     document.getElementById('expectedPension').textContent = `الراتب التقاعدي المتوقع: ${Math.floor(expectedPension).toLocaleString()} دينار`;
 
