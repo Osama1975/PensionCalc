@@ -3,44 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبة الراتب التقاعدي</title>
+    <title>الراتب التقاعدي</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>حاسبة الراتب التقاعدي</h1>
+        <h1 style="color:#007BFF;">احتساب الراتب التقاعدي للموظفين المدنيين والعسكريين وقوى الامن الداخلي</h1>
         <div class="form-container">
             <form id="pensionForm" onsubmit="event.preventDefault(); calculatePension();">
-                <label for="baseSalary">الراتب الاسمي</label>
+                <label for="baseSalary">ادخل الراتب الاسمي</label>
                 <input type="number" id="baseSalary" name="baseSalary" required>
 
-                <label for="averageBaseSalary">معدل الراتب الاسمي لآخر 36 شهرًا</label>
+                <label for="averageBaseSalary">ادخل معدل الراتب الاسمي لآخر 36 شهرًا</label>
+                <span class="note">(في حالة تعذر معرفة معدل الراتب يمكنك ادخال الراتب الاسمي للاحتساب التقريبي)</span>
                 <input type="number" id="averageBaseSalary" name="averageBaseSalary" required>
 
-                <label for="yearsOfService">سنوات الخدمة الكلية</label>
-                <input type="number" id="yearsOfService" name="yearsOfService" required>
+                <label for="yearsOfService">ادخل سنوات الخدمة الكلية</label>
+                <input type="number" step="0.1" id="yearsOfService" name="yearsOfService" required>
 
-                <label for="educationLevel">الشهادة الدراسية</label>
+                <label for="educationLevel">ادخل الشهادة الدراسية</label>
                 <select id="educationLevel" name="educationLevel" required>
-                    <option value="none">بدون</option>
-                    <option value="highschool">الثانوية العامة</option>
-                    <option value="diploma">دبلوم</option>
-                    <option value="bachelor">بكالوريوس</option>
-                    <option value="master">ماجستير</option>
+                    <option value="none">بدون شهادة</option>
                     <option value="doctorate">دكتوراه</option>
+                    <option value="master">ماجستير</option>
+                    <option value="bachelor">بكالوريوس</option>
+                    <option value="diploma">دبلوم</option>
+                    <option value="Secondary">اعدادية فما دون</option>          
                 </select>
-
-                <button type="submit">احسب</button>
+                <button type="submit" onclick="calculatePension()">احتسب</button>
             </form>
         </div>
     </div>
 
     <div id="resultsPopup" class="popup">
         <div class="popup-content">
-            <h2>نتائج الحساب</h2>
+            <h2>نتائج احتساب الراتب التقاعدي </h2>
             <p id="pensionSalary"></p>
             <p id="costOfLivingAllowance"></p>
             <p id="educationAllowance"></p>
+            <p id="expectedPensionbase"></p>
+            <p id="livelihood"></p>
             <p id="expectedPension"></p>
             <button class="close-btn" onclick="closePopup()">اغلاق</button>
         </div>
