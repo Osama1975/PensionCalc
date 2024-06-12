@@ -79,7 +79,7 @@ function calculatePension() {
     document.getElementById('pensionSalary').textContent = ` الراتب التقاعدي حسب المعادلة: ${Math.floor(pensionSalary).toLocaleString()} دينار`;
     document.getElementById('costOfLivingAllowance').textContent = `مخصصات الغلاء : ${Math.floor(costOfLivingAllowance).toLocaleString()} دينار`;
     document.getElementById('educationAllowance').textContent = `مخصصات الشهادة: ${Math.floor(educationAllowance).toLocaleString()} دينار`;
-    document.getElementById('expectedPensionbase').textContent = `الراتب التقاعدي الاساسي: ${Math.floor(expectedPensionbase).toLocaleString()} دينار`;
+    document.getElementById('expectedPensionbase').textContent = ` {لراتب التقاعدي {معادلة + غلاء + شهادة: ${Math.floor(expectedPensionbase).toLocaleString()} دينار`;
     document.getElementById('livelihood').textContent = `مبلغ تحسين المعيشة: ${Math.floor(livelihood).toLocaleString()} دينار`;
     if(expectedPension<=1000000){
     document.getElementById('expectedPension').textContent = `الراتب التقاعدي النهائي: ${Math.floor(expectedPension+livelihood).toLocaleString()} دينار`;

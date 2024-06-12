@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الراتب التقاعدي</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">موظف مدني او  عسكري او قوى الامن</a>
+        <a href="professor.html">الاساتذة الجامعيين</a>
+        <!-- <a href="services.html">الخدمات</a>
+        <a href="contact.html">اتصل بنا</a> -->
+    </div>
+    
+    <div class="container">
+        <h1 style="color:#007BFF;">احتساب الراتب التقاعدي للأساتذة الجامعيين</h1>
+        <div class="form-container">
+            <form id="pensionForm" onsubmit="event.preventDefault(); calculatePension();">
+                <label for="baseSalary">ادخل الراتب الاسمي</label>
+                <input type="number" id="baseSalary" name="baseSalary" required>
+
+                <label for="certificateallocations">ادخل مبلغ مخصصات الشهادة</label>
+                <input type="number" id="certificateallocations" name="certificateallocations" required>
+
+                <label for="universityallocations">ادخل مبلغ مخصصات الخدمة الجامعية</label>
+                <input type="number" id="universityallocations" name="universityallocations" required>
+
+                <label for="scientifcallocations">ادخل مبلغ مخصصات اللقب العلمي</label>
+                <input type="number" id="scientifcallocations" name="scientifcallocations" required>
+
+                
+                <button type="submit" onclick="calculatePension()">احتسب</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="resultsPopup" class="popup">
+        <div class="popup-content">
+            <h2>نتائج احتساب الراتب التقاعدي </h2>
+            <p id="pensionSalary"></p>
+            <button class="close-btn" onclick="closePopup()">اغلاق</button>
+        </div>
+    </div>
+
+    <script src="professor.js"></script>
+</body>
+</html>
