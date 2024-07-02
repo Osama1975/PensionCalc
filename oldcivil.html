@@ -17,15 +17,30 @@
     </div>
 
     <div class="container">
-        <h1 style="color:#007BFF;">احتساب الراتب التقاعدي للموظفين المدنيين والعسكريين وقوى الامن الداخلي</h1>
+        <h1 style="color:#007BFF;">احتساب رواتب المتقاعدين المدنيين الذين احالتهم قبل عام 2008</h1>
         <div class="form-container">
             <form id="pensionForm" onsubmit="event.preventDefault(); calculatePension();">
-                <label for="baseSalary">ادخل الراتب الاسمي</label>
-                <input type="number" id="baseSalary" name="baseSalary" required>
 
-                <label for="averageBaseSalary">ادخل معدل الراتب الاسمي لآخر 36 شهرًا</label>
-                <span class="note">(في حالة تعذر معرفة معدل الراتب يمكنك ادخال الراتب الاسمي للاحتساب التقريبي)</span>
-                <input type="number" id="averageBaseSalary" name="averageBaseSalary" required>
+                <label for="degree">اختر الدرجه الوظيفية التي تم احالتك بها الى التقاعد</label>
+                <select id="degree" name="degree">
+                    <option value="0">اختر الدرجة</option>
+                    <option value="1500000">الدرجات الخاصة</option>
+                    <option value="910000">الدرجة الاولى</option>
+                    <option value="723000">الدرجة الثانية</option>
+                    <option value="600000">الدرجة الثالثة</option>
+                    <option value="509000">الدرجة الرابعة</option>
+                    <option value="429000">الدرجة الخامسة</option>     
+                    <option value="362000">الدرجة السادسة</option>
+                    <option value="296000">الدرجة السابعة</option>
+                    <option value="260000">الدرجة الثامنة</option>
+                    <option value="210000">الدرجة التاسعة</option>
+                    <option value="170000">الدرجة العاشرة</option>        
+                </select>
+
+                
+                <input type="number" id="baseSalary" name="baseSalary" hidden>
+
+                <input type="number" id="averageBaseSalary" name="averageBaseSalary" hidden>
 
                 <label for="yearsOfService">ادخل سنوات الخدمة الكلية</label>
                 <input type="number" step="0.1" id="yearsOfService" name="yearsOfService" required>
@@ -47,6 +62,7 @@
     <div id="resultsPopup" class="popup">
         <div class="popup-content">
             <h2>نتائج احتساب الراتب التقاعدي </h2>
+            <p id="baseSalary1"></p>
             <p id="pensionSalary"></p>
             <p id="costOfLivingAllowance"></p>
             <p id="educationAllowance"></p>
@@ -57,6 +73,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scriptold.js"></script>
 </body>
 </html>

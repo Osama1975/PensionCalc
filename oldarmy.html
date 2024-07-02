@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الراتب التقاعدي</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">مدني/عسكري/شرطي احالته من 2008 صعودا</a>
+        <a href="professor.html">استاذ جامعي</a>
+        <a href="oldcivil.html"> مدني احالته قبل عام 2008 نزولا</a>
+        <a href="oldarmy.html"> عسكري/ شرطي احالته قبل عام 2008 نزولا</a>
+        <!-- <a href="services.html">الخدمات</a>
+        <a href="contact.html">اتصل بنا</a> -->
+    </div>
+
+    <div class="container">
+        <h1 style="color:#007BFF;">احتساب رواتب المنتسبين العسكريين وقوى الامن الداخلي الذين احالتهم قبل عام 2008</h1>
+        <div class="form-container">
+            <form id="pensionForm" onsubmit="event.preventDefault(); calculatePension();">
+
+                <label for="degree">اختر الرتبة العسكرية التي تم احالتك بها الى التقاعد</label>
+                <select id="degree" name="degree">
+                    <option value="0">اختر الدرجة</option>
+                    <option value="2828000">فريق اول</option>
+                    <option value="2413000">فريق</option>
+                    <option value="1500000">لواء</option>
+                    <option value="1010000">عميد</option>
+                    <option value="723000">عقيد</option>
+                    <option value="600000">مقدم</option>     
+                    <option value="509000">رائد</option>
+                    <option value="429000">نقيب</option>
+                    <option value="362000">ملازم اول</option>
+                    <option value="296000">ملازم</option>
+                    <option value="509000">ن ض درجة ممتازة/مفوض درجة 1</option>
+                    <option value="447000">ن ض درجة 1 /مفوض درجة 2</option> 
+                    <option value="429000">ن ض درجة 2 /مفوض درجة 3</option> 
+                    <option value="398000">ن ض درجة 3 /مفوض درجة 4</option> 
+                    <option value="380000">ن ض درجة 4 /مفوض درجة 5</option> 
+                    <option value="362000">ن ض درجة 5 /مفوض درجة 6</option> 
+                    <option value="332000">ن ض درجة 6 /مفوض درجة 7</option> 
+                    <option value="314000">ن ض درجة 7 /مفوض درجة 8</option> 
+                    <option value="296000">ن ض درجة 8</option> 
+                    <option value="250000">رئيس عرفاء</option> 
+                    <option value="235000">عريف</option> 
+                    <option value="235000">طالب كليةعسكرية/شرطة</option> 
+                    <option value="205000">نائب عريف</option> 
+                    <option value="180000">جندي/شرطي اول</option> 
+                    <option value="164000">جندي اول/شرطي</option> 
+                </select>
+
+                
+                <input type="number" id="baseSalary" name="baseSalary" hidden>
+
+                <input type="number" id="averageBaseSalary" name="averageBaseSalary" hidden>
+
+                <label for="yearsOfService">ادخل سنوات الخدمة الكلية</label>
+                <input type="number" step="0.1" id="yearsOfService" name="yearsOfService" required>
+
+                <label for="educationLevel">ادخل الشهادة الدراسية</label>
+                <select id="educationLevel" name="educationLevel" required>
+                    <option value="none">بدون شهادة</option>
+                    <option value="doctorate">دكتوراه</option>
+                    <option value="master">ماجستير</option>
+                    <option value="bachelor">بكالوريوس</option>
+                    <option value="diploma">دبلوم</option>
+                    <option value="Secondary">اعدادية فما دون</option>          
+                </select>
+                <button type="submit" onclick="calculatePension()">احتسب</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="resultsPopup" class="popup">
+        <div class="popup-content">
+            <h2>نتائج احتساب الراتب التقاعدي </h2>
+            <p id="baseSalary1"></p>
+            <p id="pensionSalary"></p>
+            <p id="costOfLivingAllowance"></p>
+            <p id="educationAllowance"></p>
+            <p id="expectedPensionbase"></p>
+            <p id="livelihood"></p>
+            <p id="expectedPension"></p>
+            <button class="close-btn" onclick="closePopup()">اغلاق</button>
+        </div>
+    </div>
+
+    <script src="scriptoldarmy.js"></script>
+</body>
+</html>
